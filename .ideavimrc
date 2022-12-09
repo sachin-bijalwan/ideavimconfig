@@ -1,0 +1,63 @@
+source ~/.vimrc
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+# some plugins that are really helpful
+# used for comments
+# use gc[motion]
+set commentary
+
+# used for file navigation, use <leader>fo
+set NERDTree
+
+# used for selecting text
+set surround
+
+# replace with registers , use []
+# [count]["x]gr{motion}	Replace {motion} text with the contents of register x.
+#			            Especially when using the unnamed register, this is
+#			            quicker than "_d{motion}P or "_c{motion}<C-R>"
+set ReplaceWithRegister
+
+
+set multiple-cursors
+
+nnoremap <leader>e :e ~/.ideavimrc<CR>
+nnoremap <leader>r :source ~/.ideavimrc<CR>
+
+
+#arguments text object support
+# use dia,cia,yia in normal mode in a function argument
+set argtextobj
+
+# define a new text object based on indentation
+#  <count>ai         (A)n (I)ndentation level and line above.
+#  <count>ii         (I)nner (I)ndentation level (no line above).
+set textobj-indent
+
+
+
+# idea command mapping here
+
+
+# nerdtree commands
+nnoremap <leader>fo :NERDTreeToggle<CR>
+
+# navigation mappings - all navigation mappings start with <leader>n
+nnoremap <leader>nu :action FileStructurePopup<CR>
+nnoremap <leader>ni :action GotoImplementation<CR>
+nnoremap <leader>nd :action GotoDeclaration<CR>
+nnoremap <leader>nb :action Back<CR>
+nnoremap <leader>ns :action SearchEverywhere<CR>
+
+# editor mappings - all editor mappings start with <leader>e
+nnoremap <leader>ev :action IntroduceVariable<CR>
+nnoremap <leader>er :action ReformatCode<CR>
+
+# android mappings - all android mappings start with <leader>a
+nnoremap <leader>adc :action AndroidConnectDebuggerAction<CR>
+nnoremap <leader>adl :action ToggleLineBreakpoint<CR>
+nnoremap <leader>ar :action Run<CR>
+nnoremap <leader>ab :action BuildMenu<CR>
+nnoremap <leader>at :action ActivateTerminalToolWindow<CR>
